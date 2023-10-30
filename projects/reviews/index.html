@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="flex h-screen items-center justify-center bg-gray-100">
+    <div class="flex flex-col items-center justify-center gap-y-8">
+      <h1 class="text-5xl font-bold text-slate-800">Our Reviews</h1>
+      <div
+        class="mx-auto flex w-11/12 max-w-2xl flex-col items-center bg-white p-10 text-center"
+      >
+        <img
+          src=""
+          alt=""
+          class="js-review-image h-40 w-40 rounded-full object-cover"
+        />
+        <h2 class="js-review-name mt-6 font-bold tracking-wide text-slate-800">
+          Susan Smith
+        </h2>
+        <p class="js-review-job text-theme-color"></p>
+        <p class="js-review-text mt-6 text-gray-500"></p>
+        <div class="mt-6">
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="js-previous-review-button inline h-6 w-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+          </button>
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="js-next-review-button inline h-6 w-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </button>
+        </div>
+        <button
+          class="js-random-review-button mt-6 rounded-lg border-2 border-theme-color px-4 py-2 font-bold text-theme-color transition duration-500 hover:bg-theme-color hover:text-white"
+        >
+          Surprise me
+        </button>
+      </div>
+    </div>
+    <script src="../lib.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

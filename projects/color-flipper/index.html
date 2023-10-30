@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="bg-gray-100">
+    <header class="flex h-24 items-center bg-white shadow-md">
+      <div class="items-middle mx-auto flex w-11/12 max-w-3xl justify-between">
+        <h1 class="text-theme-color text-3xl font-bold leading-normal">
+          Color Flipper
+        </h1>
+        <div class="flex gap-x-10">
+          <button
+            class="js-color-from-list-mode text-theme-color font-bold text-gray-900"
+          >
+            List
+          </button>
+          <button class="js-random-hex-color-mode font-bold text-gray-900">
+            Hex
+          </button>
+        </div>
+      </div>
+    </header>
+    <section class="flex h-[calc(100vh-6rem)] items-center justify-center">
+      <div class="flex flex-col items-center gap-y-4">
+        <h2 class="rounded bg-gray-900 p-4 text-4xl font-bold text-white">
+          Background Color :
+          <span class="js-bg-color-text text-blue-500">#F3F4F6</span>
+        </h2>
+        <button
+          class="js-generate-random-color rounded-lg border-2 border-gray-900 px-4 py-2 text-xl font-bold text-gray-900 transition duration-500 hover:bg-gray-900 hover:text-white"
+        >
+          Click me!
+        </button>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>
