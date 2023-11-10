@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="output.css" />
     <title>Document</title>
   </head>
-  <body class="h-[200vh]">
+  <body class="h-[200vh] bg-gray-100">
     <button class="js-open-sidebar-button fixed right-12 top-12">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -24,9 +24,9 @@
       </svg>
     </button>
     <aside
-      class="js-sidebar durtion-500 fixed flex h-screen w-full max-w-md translate-x-[-100%] flex-col bg-white p-8 transition-transform"
+      class="js-sidebar durtion-500 fixed flex h-screen w-full max-w-md translate-x-[-100%] flex-col bg-white py-8 transition-transform"
     >
-      <div class="flex justify-between">
+      <div class="flex justify-between px-8">
         <h1 class="text-3xl font-bold text-slate-800">Le Website.</h1>
         <button class="js-close-sidebar-button">
           <svg
@@ -45,11 +45,27 @@
           </svg>
         </button>
       </div>
-      <nav class="mt-10 flex flex-col gap-y-8">
-        <a href="" class="text-2xl text-slate-400">Home</a>
-        <a href="" class="text-2xl text-slate-400">About</a>
-        <a href="" class="text-2xl text-slate-400">Projects</a>
-        <a href="" class="text-2xl text-slate-400">Contact</a>
+      <nav class="mt-10 flex flex-col">
+        <a
+          href="#"
+          class="px-6 py-6 text-2xl text-slate-400 transition-colors duration-300 hover:bg-theme-color hover:text-white"
+          >Home</a
+        >
+        <a
+          href="#"
+          class="px-6 py-6 text-2xl text-slate-400 transition-colors duration-300 hover:bg-theme-color hover:text-white"
+          >About</a
+        >
+        <a
+          href="#"
+          class="px-6 py-6 text-2xl text-slate-400 transition-colors duration-300 hover:bg-theme-color hover:text-white"
+          >Projects</a
+        >
+        <a
+          href="#"
+          class="px-6 py-6 text-2xl text-slate-400 transition-colors duration-300 hover:bg-theme-color hover:text-white"
+          >Contact</a
+        >
       </nav>
       <div class="mt-auto flex gap-x-4 self-center">
         <a href=""
