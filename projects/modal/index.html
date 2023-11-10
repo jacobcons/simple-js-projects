@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../output.css" />
+    <title>Document</title>
+  </head>
+  <body class="h-[200vh] bg-gray-100">
+    <div
+      class="mx-auto mt-28 flex max-w-3xl flex-col items-center rounded-lg bg-white p-12 shadow-md"
+    >
+      <h1 class="text-5xl font-bold text-slate-800">Modal</h1>
+      <button
+        class="js-open-modal-button mt-8 rounded-lg border-2 border-slate-800 px-4 py-2 text-xl font-bold text-slate-800 transition duration-500 hover:bg-slate-800 hover:text-white"
+      >
+        Open Modal
+      </button>
+    </div>
+    <div
+      class="js-modal fixed top-0 flex hidden h-screen w-screen items-center justify-center bg-theme-color/40"
+    >
+      <div class="max-w-2xl rounded-lg bg-white p-12 shadow">
+        <div class="flex justify-between">
+          <h2 class="text-3xl font-bold text-slate-800">Title</h2>
+          <button class="js-close-modal-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-6 w-6 text-slate-800"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <p class="mt-6 text-gray-500">
+          Nostrud laboris laboris dolor esse ut. Nulla aliquip cupidatat culpa
+          commodo voluptate qui Lorem. Aliqua consectetur quis laboris ipsum
+          adipisicing minim anim est ipsum duis eu. Sit labore eiusmod consequat
+          proident laborum sit eu sit sunt labore velit sint ea ullamco. Sunt
+          adipisicing minim enim sit mollit veniam laborum. Veniam sit et
+          reprehenderit aliquip duis anim enim cillum enim mollit in duis in ut.
+        </p>
+      </div>
+    </div>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
