@@ -4,7 +4,7 @@ const openSidebarButton = $('.js-open-sidebar-button');
 const closeSidebarButton = $('.js-close-sidebar-button');
 const sidebar = $('.js-sidebar');
 openSidebarButton.addEventListener('click', () => {
-  sidebar.classList.add('sidebar-is-open');
+  sidebar.classList.toggle('sidebar-is-open');
 });
 closeSidebarButton.addEventListener('click', () => {
   sidebar.classList.remove('sidebar-is-open');
