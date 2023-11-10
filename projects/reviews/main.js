@@ -31,6 +31,13 @@ const reviews = [
   },
 ];
 
+function preLoadImage(url) {
+  const image = new Image();
+  image.src = url;
+  return image;
+}
+const preLoadedImages = reviews.forEach((review) => preLoadImage(review.img));
+
 const reviewImage = $('.js-review-image');
 const reviewName = $('.js-review-name');
 const reviewJob = $('.js-review-job');
@@ -71,5 +78,5 @@ randomReviewButton.addEventListener('click', () => {
     reviewIndexesWithoutCurrentReview,
   );
   currentReviewIndex = randomReviewIndexWithoutCurrentReview;
-  updateReview(reviews[randomReviewIndexWithoutCurrentReview]);
+  updateReview(reviews[currentReviewIndex]);
 });
