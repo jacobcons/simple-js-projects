@@ -5,6 +5,10 @@
 @layer components {
 }
 
+:root {
+  --dropdown-nav-height: 0px;
+}
+
 .sidebar-is-open {
   transform: translateX(0);
 }

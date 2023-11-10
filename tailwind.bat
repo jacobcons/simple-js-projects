@@ -1,1 +1,1 @@
-npx tailwindcss -i ./projects/sidebar/input.css -o ./projects/sidebar/output.css --watch
+npx tailwindcss -i ./projects/input.css -o ./projects/output.css --watch
