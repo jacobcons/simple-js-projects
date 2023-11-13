@@ -29,3 +29,8 @@
 .accordian-section-is-open .accordian-body {
   display: block;
 }
+
+.tab-button-is-selected {
+  border-bottom: 4px solid #14b8a6;
+  color: #14b8a6 !important;
+}
