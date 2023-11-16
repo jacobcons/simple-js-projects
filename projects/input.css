@@ -34,3 +34,18 @@
   border-bottom: 4px solid #14b8a6;
   color: #14b8a6 !important;
 }
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fade-in-out {
+  animation: fade-in-out 1s linear;
+}
