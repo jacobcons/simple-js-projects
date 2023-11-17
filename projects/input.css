@@ -12,3 +12,25 @@
 .sidebar-is-open {
   transform: translateX(0);
 }
+
+.accordian-section-is-open .js-accordian-toggle-button {
+  background-color: gray;
+}
+
+.accordian-section-is-open .accordian-title {
+  color: white;
+}
+
+.accordian-section-is-open .accordian-toggle-icon {
+  color: white;
+  transform: scale(-1);
+}
+
+.accordian-section-is-open .accordian-body {
+  display: block;
+}
+
+.tab-button-is-selected {
+  border-bottom: 4px solid #14b8a6;
+  color: #14b8a6 !important;
+}

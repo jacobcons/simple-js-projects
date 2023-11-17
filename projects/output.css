@@ -555,12 +555,17 @@ video {
   margin-right: auto;
 }
 
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
 
-.mt-20 {
-  margin-top: 5rem;
+.mt-16 {
+  margin-top: 4rem;
 }
 
 .mt-28 {
@@ -635,6 +640,10 @@ video {
   width: 91.666667%;
 }
 
+.w-20 {
+  width: 5rem;
+}
+
 .w-40 {
   width: 10rem;
 }
@@ -686,6 +695,10 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .gap-x-10 {
@@ -761,6 +774,11 @@ video {
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 
+.border-gray-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
 .border-gray-900 {
   --tw-border-opacity: 1;
   border-color: rgb(17 24 39 / var(--tw-border-opacity));
@@ -784,6 +802,11 @@ video {
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.bg-theme-color {
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
 }
 
 .bg-theme-color\/40 {
@@ -999,6 +1022,28 @@ video {
   transform: translateX(0);
 }
 
+.accordian-section-is-open .js-accordian-toggle-button {
+  background-color: gray;
+}
+
+.accordian-section-is-open .accordian-title {
+  color: white;
+}
+
+.accordian-section-is-open .accordian-toggle-icon {
+  color: white;
+  transform: scale(-1);
+}
+
+.accordian-section-is-open .accordian-body {
+  display: block;
+}
+
+.tab-button-is-selected {
+  border-bottom: 4px solid #14b8a6;
+  color: #14b8a6 !important;
+}
+
 .hover\:bg-gray-900:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
@@ -1012,6 +1057,11 @@ video {
 .hover\:bg-theme-color:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(20 184 166 / var(--tw-bg-opacity));
+}
+
+.hover\:text-gray-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
 .hover\:text-theme-color:hover {
@@ -1028,6 +1078,12 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 768px) {
