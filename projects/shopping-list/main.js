@@ -1,61 +1,80 @@
 import { $, $$ } from '../lib.js';
 
-let items = [];
-function addItemsFromLocalStorage() {
-  const itemsFromLocalStorage = JSON.parse(localStorage.getItem('items'));
-  items = itemsFromLocalStorage;
-  itemsFromLocalStorage.forEach((item) => {
-    appendItemToItemList(item);
-  });
-}
-
-const itemsView = $('.js-items');
-function appendItemToItemList(item) {
-  itemsView.insertAdjacentHTML('beforeend', generateItemTemplate(item));
-  const itemView = itemsView.lastElementChild;
-  addItemEditButtonFunctionality(itemView);
-  addItemDeleteButtonFunctionality(itemView);
-}
-
-addItemsFromLocalStorage();
-
-const addItemButton = $('.js-add-item-button');
-const addItemInput = $('.js-add-item-input');
-addItemButton.addEventListener('click', addItem);
-addItemInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    addItem();
-  }
-});
-
-function addItem() {
-  const item = addItemInput.value;
-
-  if (!item) {
-    popUpEnterItemMessage();
-    return;
+class Items {
+  constructor(itemNames) {
+    this.items = itemNames.map((name) => new Item(name, this));
+    this.itemContainer = $('.js-items');
+    this.renderItems();
   }
 
-  items.push(item);
-  updateItemsInLocalStorage();
-  appendItemToItemList(item);
-  addItemInput.value = '';
+  renderItems() {
+    this.items.forEach((item) => this.itemContainer.append(item.element));
+  }
+
+  appendItem(item) {
+    this.items.push(item);
+    this.itemContainer.append(item.element);
+    this.updateInLocalStorage();
+  }
+
+  deleteItem(item) {
+    this.items = this.items.filter((currentItem) => currentItem !== item);
+    this.updateInLocalStorage();
+  }
+
+  clearItems() {
+    this.items = [];
+    this.itemContainer.innerHTML = '';
+    this.updateInLocalStorage();
+  }
+
+  convertToArrayOfItemNames() {
+    return this.items.map((item) => item.name);
+  }
+
+  updateInLocalStorage() {
+    console.log(JSON.stringify(this.convertToArrayOfItemNames()));
+    localStorage.setItem(
+      'items',
+      JSON.stringify(this.convertToArrayOfItemNames()),
+    );
+  }
 }
 
-function popUpEnterItemMessage() {
-  const enterItemMessage = $('.js-enter-item-message');
-  enterItemMessage.classList.add('fade-in-out');
-  enterItemMessage.addEventListener('animationend', () => {
-    enterItemMessage.classList.remove('fade-in-out');
-  });
-}
+class Item {
+  constructor(name, items) {
+    this.name = name;
+    this.items = items;
 
-function generateItemTemplate(item) {
-  return `<li class="flex gap-x-2">
+    this.element = this.createElement();
+
+    this.editButton = this.element.querySelector('.js-edit-item-button');
+    this.editInput = this.element.querySelector('.js-edit-item-input');
+    this.editButton.addEventListener('click', () => this.makeItemEditable());
+    this.editInput.addEventListener('keydown', (e) => {
+      const itemIsEditable = !this.editInput.disabled;
+      if (e.key === 'Enter' && itemIsEditable) {
+        this.updateItem(this.editInput.value);
+      }
+    });
+    document.addEventListener('click', (e) => {
+      const clickOutsideOfItem = !this.element.contains(e.target);
+      const itemIsEditable = !this.editInput.disabled;
+      if (clickOutsideOfItem && itemIsEditable) {
+        this.updateItem(this.editInput.value);
+      }
+    });
+
+    const deleteButton = this.element.querySelector('.js-delete-item-button');
+    deleteButton.addEventListener('click', () => this.deleteItem());
+  }
+
+  createElement() {
+    const templateString = `<li class="flex gap-x-2">
     <input
       class="js-edit-item-input w-full rounded-l-lg p-2"
       type="text"
-      value="${item}"
+      value="${this.name}"
       disabled
     />
     <button class="js-edit-item-button inline">
@@ -91,59 +110,60 @@ function generateItemTemplate(item) {
       </svg>
     </button>
   </li>`;
+
+    return document.createRange().createContextualFragment(templateString)
+      .firstChild;
+  }
+
+  makeItemEditable() {
+    this.editInput.disabled = false;
+    this.editInput.select();
+  }
+
+  updateItem(name) {
+    this.editInput.disabled = true;
+    this.name = name;
+    this.items.updateInLocalStorage();
+  }
+
+  deleteItem() {
+    this.items.deleteItem(this);
+    this.element.remove();
+  }
 }
 
-function addItemEditButtonFunctionality(itemView) {
-  const editItemButton = itemView.querySelector('.js-edit-item-button');
-  const editItemInput = itemView.querySelector('.js-edit-item-input');
-  editItemButton.addEventListener('click', () => {
-    editItemInput.disabled = false;
-    editItemInput.select();
-    editItemInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        updateItem(itemView, editItemInput);
-      }
-    });
+const itemsLocalStorage = JSON.parse(localStorage.getItem('items'));
+const items = new Items(itemsLocalStorage);
 
-    document.addEventListener('click', (e) => {
-      const clickOutsideOfItem = !itemView.contains(e.target);
-      if (clickOutsideOfItem && !editItemInput.disabled) {
-        updateItem(itemView, editItemInput);
-      }
-    });
-  });
+const addItemButton = $('.js-add-item-button');
+const addItemInput = $('.js-add-item-input');
+addItemButton.addEventListener('click', addItem);
+addItemInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    addItem();
+  }
+});
+
+function addItem() {
+  const itemName = addItemInput.value;
+
+  if (!itemName) {
+    popUpEnterItemMessage();
+    return;
+  }
+
+  const item = new Item(itemName, items);
+  items.appendItem(item);
+  addItemInput.value = '';
 }
 
-function updateItem(itemView, editItemInput) {
-  const item = editItemInput.value;
-  items[getIndexOfItemView(itemView)] = item;
-  updateItemsInLocalStorage();
-  editItemInput.disabled = true;
-}
-
-function updateItemsInLocalStorage() {
-  console.log(items);
-  localStorage.setItem('items', JSON.stringify(items));
-}
-
-function getIndexOfItemView(itemView) {
-  const itemsViewArray = [...itemsView.children];
-  return itemsViewArray.indexOf(itemView);
-}
-
-function addItemDeleteButtonFunctionality(itemView) {
-  const deleteItemButton = itemView.querySelector('.js-delete-item-button');
-  deleteItemButton.addEventListener('click', () => {
-    items.splice(getIndexOfItemView(itemView), 1);
-    updateItemsInLocalStorage();
-    itemView.remove();
+function popUpEnterItemMessage() {
+  const enterItemMessage = $('.js-enter-item-message');
+  enterItemMessage.classList.add('fade-in-out');
+  enterItemMessage.addEventListener('animationend', () => {
+    enterItemMessage.classList.remove('fade-in-out');
   });
 }
 
 const clearItemsButton = $('.js-clear-items-button');
-clearItemsButton.addEventListener('click', clearItems);
-function clearItems() {
-  items = [];
-  updateItemsInLocalStorage();
-  itemsView.innerHTML = '';
-}
+clearItemsButton.addEventListener('click', () => items.clearItems());
