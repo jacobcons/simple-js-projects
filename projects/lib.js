@@ -22,6 +22,7 @@ function wait(ms) {
   return promise;
 }
 
+// between [0, max)
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -34,4 +35,18 @@ function range(end) {
   return [...Array(end).keys()];
 }
 
-export { $, $$, wait, getRandomInt, getRandomArrayElement, range };
+// [min, max)
+function getRandomIntInRange(min, max) {
+  const randomIntSameRangeFromZero = getRandomInt(max - min);
+  return randomIntSameRangeFromZero + min;
+}
+
+export {
+  $,
+  $$,
+  wait,
+  getRandomInt,
+  getRandomArrayElement,
+  range,
+  getRandomIntInRange,
+};
