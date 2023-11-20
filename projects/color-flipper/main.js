@@ -19,10 +19,9 @@ randomHexColorModeButton.addEventListener('click', () => {
   colorFromListModeButton.classList.remove('text-theme-color');
 });
 
+let randomColor = '';
 const generateRandomColorButton = $('.js-generate-random-color');
 generateRandomColorButton.addEventListener('click', () => {
-  let randomColor = '';
-
   if (colorSelectionMode === ColorSelectionModes.LIST) {
     const colors = ['red', 'rgb(27, 34, 151)', '#F3A89A', 'green', 'pink'];
 
