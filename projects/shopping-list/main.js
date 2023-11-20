@@ -132,9 +132,11 @@ class Item {
   }
 }
 
+// get items from local storage
 const itemsLocalStorage = JSON.parse(localStorage.getItem('items'));
 const items = new Items(itemsLocalStorage);
 
+// add item
 const addItemButton = $('.js-add-item-button');
 const addItemInput = $('.js-add-item-input');
 addItemButton.addEventListener('click', addItem);
@@ -165,5 +167,6 @@ function popUpEnterItemMessage() {
   });
 }
 
+// clear items
 const clearItemsButton = $('.js-clear-items-button');
 clearItemsButton.addEventListener('click', () => items.clearItems());

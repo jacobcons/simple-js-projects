@@ -1,35 +1,12 @@
 import { $ } from '../lib.js';
 
-const counter = $('.js-counter');
-let count = 0;
-function updateCounterColor() {
-  const redColor = 'red';
-  const grayColor = '#1e293b';
-  const greenColor = 'green';
-  if (count < 0) {
-    counter.style.color = redColor;
-  } else if (count === 0) {
-    counter.style.color = grayColor;
-  } else {
-    counter.style.color = greenColor;
-  }
-}
-function updateCounter() {
-  counter.textContent = String(count);
-  updateCounterColor();
-}
-function incrementCounter() {
-  count += 1;
-  updateCounter();
-}
-function decrementCounter() {
-  count -= 1;
-  updateCounter();
-}
-function resetCounter() {
-  count = 0;
-  updateCounter();
-}
+// button functionality
+const decreaseButton = $('.js-decrease-button');
+const increaseButton = $('.js-increase-button');
+const resetButton = $('.js-reset-button');
+makeButtonUpdateHoldMouseDown(increaseButton, incrementCounter);
+makeButtonUpdateHoldMouseDown(decreaseButton, decrementCounter);
+resetButton.addEventListener('mousedown', resetCounter);
 
 function makeButtonUpdateHoldMouseDown(button, changeCounter) {
   let initialWait;
@@ -49,9 +26,42 @@ function makeButtonUpdateHoldMouseDown(button, changeCounter) {
     clearInterval(intervalBetweenUpdates);
   });
 }
-const decreaseButton = $('.js-decrease-button');
-const increaseButton = $('.js-increase-button');
-const resetButton = $('.js-reset-button');
-makeButtonUpdateHoldMouseDown(increaseButton, incrementCounter);
-makeButtonUpdateHoldMouseDown(decreaseButton, decrementCounter);
-resetButton.addEventListener('mousedown', resetCounter);
+
+// change counter data
+let count = 0;
+
+function incrementCounter() {
+  count += 1;
+  updateCounter();
+}
+
+function decrementCounter() {
+  count -= 1;
+  updateCounter();
+}
+
+function resetCounter() {
+  count = 0;
+  updateCounter();
+}
+
+// change counter view
+const counter = $('.js-counter');
+
+function updateCounterColor() {
+  const redColor = 'red';
+  const grayColor = '#1e293b';
+  const greenColor = 'green';
+  if (count < 0) {
+    counter.style.color = redColor;
+  } else if (count === 0) {
+    counter.style.color = grayColor;
+  } else {
+    counter.style.color = greenColor;
+  }
+}
+
+function updateCounter() {
+  counter.textContent = String(count);
+  updateCounterColor();
+}

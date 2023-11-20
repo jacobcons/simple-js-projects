@@ -19,39 +19,37 @@ randomHexColorModeButton.addEventListener('click', () => {
   colorFromListModeButton.classList.remove('text-theme-color');
 });
 
-const backgroundColorText = $('.js-bg-color-text');
-function setBackgroundColor(color) {
-  document.body.style.backgroundColor = color;
-  backgroundColorText.textContent = color;
-}
-const colors = ['red', 'rgb(27, 34, 151)', '#F3A89A', 'green', 'pink'];
-const hexDigits = [
-  '0',
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-];
-const hexCodeLength = 6;
-let randomColor = '';
 const generateRandomColorButton = $('.js-generate-random-color');
 generateRandomColorButton.addEventListener('click', () => {
+  let randomColor = '';
+
   if (colorSelectionMode === ColorSelectionModes.LIST) {
+    const colors = ['red', 'rgb(27, 34, 151)', '#F3A89A', 'green', 'pink'];
+
     const colorsWithPreviouslyChosenColorRemoved = colors.filter(
       (color) => color !== randomColor,
     );
     randomColor = getRandomArrayElement(colorsWithPreviouslyChosenColorRemoved);
   } else if (colorSelectionMode === ColorSelectionModes.HEX) {
+    const hexCodeLength = 6;
+    const hexDigits = [
+      '0',
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      'A',
+      'B',
+      'C',
+      'D',
+      'E',
+    ];
+
     randomColor = '#';
     for (let i = 0; i < hexCodeLength; i += 1) {
       randomColor += getRandomArrayElement(hexDigits);
@@ -59,3 +57,9 @@ generateRandomColorButton.addEventListener('click', () => {
   }
   setBackgroundColor(randomColor);
 });
+
+function setBackgroundColor(color) {
+  const backgroundColorText = $('.js-bg-color-text');
+  document.body.style.backgroundColor = color;
+  backgroundColorText.textContent = color;
+}

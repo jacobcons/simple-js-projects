@@ -31,26 +31,31 @@ const reviews = [
   },
 ];
 
+//preload images
+const preLoadedImages = reviews.forEach((review) => preLoadImage(review.img));
+
 function preLoadImage(url) {
   const image = new Image();
   image.src = url;
   return image;
 }
-const preLoadedImages = reviews.forEach((review) => preLoadImage(review.img));
 
-const reviewImage = $('.js-review-image');
-const reviewName = $('.js-review-name');
-const reviewJob = $('.js-review-job');
-const reviewText = $('.js-review-text');
+// display first review
+updateReview(reviews[0]);
+
 function updateReview(review) {
+  const reviewImage = $('.js-review-image');
+  const reviewName = $('.js-review-name');
+  const reviewJob = $('.js-review-job');
+  const reviewText = $('.js-review-text');
+
   reviewImage.src = review.img;
   reviewName.textContent = review.name;
   reviewJob.textContent = review.job;
   reviewText.textContent = review.text;
 }
 
-updateReview(reviews[0]);
-
+// button functionality
 let currentReviewIndex = 0;
 const previousReviewButton = $('.js-previous-review-button');
 const nextReviewButton = $('.js-next-review-button');
