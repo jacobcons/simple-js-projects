@@ -6,9 +6,24 @@
     <link rel="stylesheet" href="../output.css" />
     <title>Document</title>
   </head>
-  <body class="my-20 bg-gray-100">
-    <div class="mx-auto w-11/12 max-w-2xl">
+  <body class="flex h-screen items-center justify-center bg-gray-100">
+    <div class="flex w-11/12 max-w-md flex-col items-center justify-center">
       <h1 class="text-3xl font-bold text-slate-800">Currency Converter</h1>
+      <div class="mt-6 grid grid-cols-[2fr,3fr] gap-y-4">
+        <input
+          type="text"
+          id="js-currency-amount-1"
+          class="w-full border-r p-2 text-gray-900 outline-none"
+        />
+        <select name="" id="js-currency-type-1" class="w-full p-2"></select>
+
+        <input
+          type="text"
+          id="js-currency-amount-2"
+          class="w-full border-r p-2 text-gray-900 outline-none"
+        />
+        <select name="" id="js-currency-type-2" class="w-full p-2"></select>
+      </div>
     </div>
     <script src="main.js" type="module"></script>
   </body>
