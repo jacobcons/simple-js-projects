@@ -32,7 +32,7 @@ class TypeWriterText {
   }
 }
 
-const typeWriterTextElements = $$('[data-typewriter-text]');
+const typeWriterTextElements = $$('.js-typewriter-text');
 typeWriterTextElements.forEach((typeWriterTextElement) => {
   const typeWriterText = new TypeWriterText(typeWriterTextElement);
   typeWriterText.typeText().then(() => {
