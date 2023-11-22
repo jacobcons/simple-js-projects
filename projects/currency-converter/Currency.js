@@ -28,7 +28,7 @@ export default class Currency {
 
   convertToOtherCurrency() {
     const amount = this.getAmount();
-    if (amount < 0 || isNaN(amount)) {
+    if (amount < 0 || Number.isNaN(amount)) {
       this.otherCurrency.setAmount('');
       return;
     }
