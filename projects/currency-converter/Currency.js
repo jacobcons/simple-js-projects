@@ -1,4 +1,4 @@
-import { currencyTypes, exchangeRates } from './CurrencyData.js';
+import { currencyTypes, exchangeRates } from './currency-data.js';
 
 export default class Currency {
   constructor(amountInput, typeInput, initialType) {
