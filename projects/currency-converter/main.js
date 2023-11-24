@@ -1,6 +1,6 @@
 import { $, $$ } from '../lib.js';
 import Currency from './Currency.js';
-import CurrencyPair from './CurrencyPair.js';
+import linkCurrencies from './linkCurrencies.js';
 
 const currency1 = new Currency(
   $('#js-currency-amount-1'),
@@ -13,4 +13,4 @@ const currency2 = new Currency(
   'usd',
 );
 
-const currencyPair = new CurrencyPair(currency1, currency2);
+linkCurrencies(currency1, currency2);
