@@ -1,45 +1,47 @@
 import { $, $$ } from '../lib.js';
 import Item from './Item.js';
 
-// get items from local storage
-const jsonItemNamesInStorage = localStorage.getItem('items');
-const itemNamesInStorage = jsonItemNamesInStorage
-  ? JSON.parse(jsonItemNamesInStorage)
-  : [];
-let items = itemNamesInStorage.map((name) => new Item(name));
+class Items {
+  constructor() {
+    const jsonItemNamesInStorage = localStorage.getItem('items');
+    const itemNamesInStorage = jsonItemNamesInStorage
+      ? JSON.parse(jsonItemNamesInStorage)
+      : [];
+    this.items = itemNamesInStorage.map((name) => new Item(name, this));
+    this.itemContainer = $('#js-items');
+  }
 
-const itemContainer = $('.js-items');
+  renderItems() {
+    this.items.forEach((item) => this.itemContainer.append(item.element));
+  }
 
-function renderItems() {
-  items.forEach((item) => itemContainer.append(item.element));
+  appendItem(item) {
+    this.items.push(item);
+    this.itemContainer.append(item.element);
+    this.updateLocalStorage();
+  }
+
+  deleteItem(item) {
+    this.items = this.items.filter((currentItem) => currentItem !== item);
+    this.updateLocalStorage();
+  }
+
+  clearItems() {
+    this.items = [];
+    this.itemContainer.innerHTML = '';
+    this.updateLocalStorage();
+  }
+
+  convertItemObjectsToItemNames() {
+    return this.items.map((item) => item.name);
+  }
+
+  updateLocalStorage() {
+    localStorage.setItem(
+      'items',
+      JSON.stringify(this.convertItemObjectsToItemNames()),
+    );
+  }
 }
 
-function appendItem(item) {
-  items.push(item);
-  itemContainer.append(item.element);
-  updateLocalStorage();
-}
-
-function deleteItem(item) {
-  items = items.filter((currentItem) => currentItem !== item);
-  updateLocalStorage();
-}
-
-function clearItems() {
-  items = [];
-  itemContainer.innerHTML = '';
-  updateLocalStorage();
-}
-
-function convertItemObjectsToItemNames() {
-  return items.map((item) => item.name);
-}
-
-function updateLocalStorage() {
-  localStorage.setItem(
-    'items',
-    JSON.stringify(convertItemObjectsToItemNames()),
-  );
-}
-
-export { renderItems, appendItem, deleteItem, clearItems, updateLocalStorage };
+export default new Items();

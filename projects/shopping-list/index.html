@@ -13,24 +13,27 @@
         <div class="mt-8 flex">
           <input
             type="text"
-            class="js-add-item-input w-full px-2"
+            id="js-add-item-input"
+            class="w-full px-2"
             placeholder="e.g. eggs"
           />
           <button
-            class="js-add-item-button rounded-r-lg bg-theme-color p-2 text-white"
+            id="js-add-item-button"
+            class="rounded-r-lg bg-theme-color p-2 text-white"
           >
             Add+
           </button>
         </div>
         <span
-          class="js-enter-item-message absolute left-2/4 top-[-1.5rem] translate-x-[-50%] rounded bg-red-600 p-2 text-sm text-white opacity-0"
+          id="js-enter-item-message"
+          class="absolute left-2/4 top-[-1.5rem] translate-x-[-50%] rounded bg-red-600 p-2 text-sm text-white opacity-0"
           >Please enter an item!</span
         >
       </div>
-      <button class="js-clear-items-button mt-2 text-left text-red-600">
+      <button id="js-clear-items-button" class="mt-2 text-left text-red-600">
         Clear items
       </button>
-      <ul class="js-items mx-auto mt-8 w-[80%] gap-y-4"></ul>
+      <ul id="js-items" class="mx-auto mt-8 w-[80%] gap-y-4"></ul>
     </div>
     <script src="main.js" type="module"></script>
   </body>

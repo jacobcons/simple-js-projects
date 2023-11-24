@@ -1,8 +1,7 @@
-import * as Items from './items.js';
-
 export default class Item {
-  constructor(name) {
+  constructor(name, items) {
     this.name = name;
+    this.items = items;
 
     this.element = this.createElement();
 
@@ -81,11 +80,11 @@ export default class Item {
   updateItem(name) {
     this.editInput.disabled = true;
     this.name = name;
-    Items.updateLocalStorage();
+    this.items.updateLocalStorage();
   }
 
   deleteItem() {
-    Items.deleteItem(this);
+    this.items.deleteItem(this);
     this.element.remove();
   }
 }
