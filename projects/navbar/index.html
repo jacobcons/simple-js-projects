@@ -15,14 +15,15 @@
           <h1 class="text-3xl font-bold">
             Le <span class="text-theme-color">Website</span>
           </h1>
-          <button class="js-dropdown-nav-button md:hidden">
+          <button id="js-dropdown-nav-button" class="md:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="js-open-dropdown-nav-icon h-8 w-8"
+              id="js-open-dropdown-nav-icon"
+              class="h-8 w-8"
             >
               <path
                 stroke-linecap="round"
@@ -36,7 +37,8 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="js-close-dropdown-nav-icon hidden h-8 w-8"
+              id="js-close-dropdown-nav-icon"
+              class="hidden h-8 w-8"
             >
               <path
                 stroke-linecap="round"
@@ -47,7 +49,8 @@
           </button>
         </div>
         <nav
-          class="js-nav duration-600 duration-600 flex h-dropdown-nav-height flex-col gap-y-3 overflow-hidden transition-all md:h-auto md:flex-row md:gap-x-6"
+          id="js-nav"
+          class="duration-600 duration-600 flex h-dropdown-nav-height flex-col gap-y-3 overflow-hidden transition-all md:h-auto md:flex-row md:gap-x-6"
         >
           <a href="" class="text-lg transition-colors hover:text-theme-color"
             >Home</a

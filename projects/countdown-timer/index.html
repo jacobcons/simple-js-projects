@@ -10,36 +10,43 @@
     <div class="mx-auto w-11/12 max-w-2xl">
       <h1 class="text-4xl font-bold text-slate-800">Countdown Timer</h1>
       <p class="mt-6 text-gray-500">
-        Giveaway ends on <span class="js-giveaway-date"></span>
+        Giveaway ends on <span id="js-giveaway-date"></span>
       </p>
       <div class="mt-6 flex flex-col items-center gap-4 sm:flex-row">
         <div
           class="flex w-20 flex-col items-center justify-between bg-theme-color p-4 text-white"
         >
-          <span class="js-days-until-giveaway text-2xl font-bold">00</span>
+          <span id="js-days-until-giveaway" class="text-2xl font-bold">00</span>
           <span>Days</span>
         </div>
         <div
           class="flex w-20 flex-col items-center justify-between bg-theme-color p-4 text-white"
         >
-          <span class="js-hours-until-giveaway text-2xl font-bold">00</span>
+          <span id="js-hours-until-giveaway" class="text-2xl font-bold"
+            >00</span
+          >
           <span>Hours</span>
         </div>
         <div
           class="flex w-20 flex-col items-center justify-between bg-theme-color p-4 text-white"
         >
-          <span class="js-minutes-until-giveaway text-2xl font-bold">00</span>
+          <span id="js-minutes-until-giveaway" class="text-2xl font-bold"
+            >00</span
+          >
           <span>Minutes</span>
         </div>
         <div
           class="flex w-20 flex-col items-center justify-between bg-theme-color p-4 text-white"
         >
-          <span class="js-seconds-until-giveaway text-2xl font-bold">00</span>
+          <span id="js-seconds-until-giveaway" class="text-2xl font-bold"
+            >00</span
+          >
           <span>Seconds</span>
         </div>
       </div>
       <p
-        class="js-giveaway-finished-message mt-6 hidden text-2xl text-gray-500"
+        id="js-giveaway-finished-message"
+        class="mt-6 hidden text-2xl text-gray-500"
       >
         Giveaway has finished!
       </p>

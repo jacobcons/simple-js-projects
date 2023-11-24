@@ -6,8 +6,8 @@ const ColorSelectionModes = {
 };
 let colorSelectionMode = ColorSelectionModes.LIST;
 
-const colorFromListModeButton = $('.js-color-from-list-mode');
-const randomHexColorModeButton = $('.js-random-hex-color-mode');
+const colorFromListModeButton = $('#js-color-from-list-mode');
+const randomHexColorModeButton = $('#js-random-hex-color-mode');
 colorFromListModeButton.addEventListener('click', () => {
   colorSelectionMode = ColorSelectionModes.LIST;
   colorFromListModeButton.classList.add('text-theme-color');
@@ -20,7 +20,7 @@ randomHexColorModeButton.addEventListener('click', () => {
 });
 
 let randomColor = '';
-const generateRandomColorButton = $('.js-generate-random-color');
+const generateRandomColorButton = $('#js-generate-random-color');
 generateRandomColorButton.addEventListener('click', () => {
   if (colorSelectionMode === ColorSelectionModes.LIST) {
     const colors = ['red', 'rgb(27, 34, 151)', '#F3A89A', 'green', 'pink'];
@@ -58,7 +58,7 @@ generateRandomColorButton.addEventListener('click', () => {
 });
 
 function setBackgroundColor(color) {
-  const backgroundColorText = $('.js-bg-color-text');
+  const backgroundColorText = $('#js-bg-color-text');
   document.body.style.backgroundColor = color;
   backgroundColorText.textContent = color;
 }

@@ -13,7 +13,7 @@ displayGiveAwayDate();
 
 function displayGiveAwayDate() {
   const dateAsString = convertDateObjectToHumanReadableString(giveawayDate);
-  const giveawayDateDisplay = $('.js-giveaway-date');
+  const giveawayDateDisplay = $('#js-giveaway-date');
   giveawayDateDisplay.textContent = dateAsString;
 }
 
@@ -47,7 +47,7 @@ function updateTimeUnitilGiveaway() {
 }
 
 function displayGiveawayFinishedMessage() {
-  const giveawayFinishedMessage = $('.js-giveaway-finished-message');
+  const giveawayFinishedMessage = $('#js-giveaway-finished-message');
   giveawayFinishedMessage.classList.remove('hidden');
 }
 
@@ -57,10 +57,10 @@ function displayTimeUntilGiveaway({
   minutesUntilGiveaway,
   secondsUntilGiveaway,
 }) {
-  const daysUntilGiveawayDisplay = $('.js-days-until-giveaway');
-  const hoursUntilGiveawayDisplay = $('.js-hours-until-giveaway');
-  const minutesUntilGiveawayDisplay = $('.js-minutes-until-giveaway');
-  const secondsUntilGiveawayDisplay = $('.js-seconds-until-giveaway');
+  const daysUntilGiveawayDisplay = $('#js-days-until-giveaway');
+  const hoursUntilGiveawayDisplay = $('#js-hours-until-giveaway');
+  const minutesUntilGiveawayDisplay = $('#js-minutes-until-giveaway');
+  const secondsUntilGiveawayDisplay = $('#js-seconds-until-giveaway');
   daysUntilGiveawayDisplay.textContent = daysUntilGiveaway;
   hoursUntilGiveawayDisplay.textContent = hoursUntilGiveaway;
   minutesUntilGiveawayDisplay.textContent = minutesUntilGiveaway;

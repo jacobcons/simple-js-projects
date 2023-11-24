@@ -1,9 +1,9 @@
 import { $ } from '../lib.js';
 
 // button functionality
-const decreaseButton = $('.js-decrease-button');
-const increaseButton = $('.js-increase-button');
-const resetButton = $('.js-reset-button');
+const decreaseButton = $('#js-decrease-button');
+const increaseButton = $('#js-increase-button');
+const resetButton = $('#js-reset-button');
 makeButtonUpdateHoldMouseDown(increaseButton, incrementCounter);
 makeButtonUpdateHoldMouseDown(decreaseButton, decrementCounter);
 resetButton.addEventListener('mousedown', resetCounter);
@@ -46,7 +46,7 @@ function resetCounter() {
 }
 
 // change counter view
-const counter = $('.js-counter');
+const counter = $('#js-counter');
 
 function updateCounterColor() {
   const redColor = 'red';

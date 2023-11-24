@@ -44,10 +44,10 @@ function preLoadImage(url) {
 updateReview(reviews[0]);
 
 function updateReview(review) {
-  const reviewImage = $('.js-review-image');
-  const reviewName = $('.js-review-name');
-  const reviewJob = $('.js-review-job');
-  const reviewText = $('.js-review-text');
+  const reviewImage = $('#js-review-image');
+  const reviewName = $('#js-review-name');
+  const reviewJob = $('#js-review-job');
+  const reviewText = $('#js-review-text');
 
   reviewImage.src = review.img;
   reviewName.textContent = review.name;
@@ -57,9 +57,9 @@ function updateReview(review) {
 
 // button functionality
 let currentReviewIndex = 0;
-const previousReviewButton = $('.js-previous-review-button');
-const nextReviewButton = $('.js-next-review-button');
-const randomReviewButton = $('.js-random-review-button');
+const previousReviewButton = $('#js-previous-review-button');
+const nextReviewButton = $('#js-next-review-button');
+const randomReviewButton = $('#js-random-review-button');
 previousReviewButton.addEventListener('click', () => {
   if (currentReviewIndex === 0) {
     currentReviewIndex = reviews.length - 1;

@@ -7,7 +7,7 @@
     <title>Document</title>
   </head>
   <body class="h-[200vh] bg-gray-100">
-    <button class="js-open-sidebar-button fixed right-12 top-12">
+    <button id="js-open-sidebar-button" class="fixed right-12 top-12">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -24,11 +24,12 @@
       </svg>
     </button>
     <aside
-      class="js-sidebar durtion-500 fixed flex h-screen w-full max-w-md translate-x-[-100%] flex-col bg-white py-8 transition-transform"
+      id="js-sidebar"
+      class="durtion-500 fixed flex h-screen w-full max-w-md translate-x-[-100%] flex-col bg-white py-8 transition-transform"
     >
       <div class="flex justify-between px-8">
         <h1 class="text-3xl font-bold text-slate-800">Le Website.</h1>
-        <button class="js-close-sidebar-button">
+        <button id="js-close-sidebar-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

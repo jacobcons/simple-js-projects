@@ -12,18 +12,20 @@
     >
       <h1 class="text-5xl font-bold text-slate-800">Modal</h1>
       <button
-        class="js-open-modal-button mt-8 rounded-lg border-2 border-slate-800 px-4 py-2 text-xl font-bold text-slate-800 transition duration-500 hover:bg-slate-800 hover:text-white"
+        id="js-open-modal-button"
+        class="mt-8 rounded-lg border-2 border-slate-800 px-4 py-2 text-xl font-bold text-slate-800 transition duration-500 hover:bg-slate-800 hover:text-white"
       >
         Open Modal
       </button>
     </div>
     <div
-      class="js-modal fixed top-0 flex hidden h-screen w-full items-center justify-center bg-theme-color/40"
+      id="js-modal"
+      class="fixed top-0 flex hidden h-screen w-full items-center justify-center bg-theme-color/40"
     >
       <div class="w-11/12 max-w-2xl rounded-lg bg-white p-12 shadow">
         <div class="flex justify-between">
           <h2 class="text-3xl font-bold text-slate-800">Title</h2>
-          <button class="js-close-modal-button">
+          <button id="js-close-modal-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

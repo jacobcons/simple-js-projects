@@ -1,9 +1,9 @@
 import { $ } from '../lib.js';
 
-const nav = $('.js-nav');
-const dropDownNavButton = $('.js-dropdown-nav-button');
-const openDropdownNavIcon = $('.js-open-dropdown-nav-icon');
-const closeDropdownNavIcon = $('.js-close-dropdown-nav-icon');
+const nav = $('#js-nav');
+const dropDownNavButton = $('#js-dropdown-nav-button');
+const openDropdownNavIcon = $('#js-open-dropdown-nav-icon');
+const closeDropdownNavIcon = $('#js-close-dropdown-nav-icon');
 const root = $(':root');
 const extraSpaceAtBottomDropDownNav = 32;
 dropDownNavButton.addEventListener('click', () => {
