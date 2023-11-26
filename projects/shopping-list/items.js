@@ -1,7 +1,7 @@
 import { $, $$ } from '../lib.js';
 import Item from './Item.js';
 
-class Items {
+export default class Items {
   constructor() {
     const jsonItemNamesInStorage = localStorage.getItem('items');
     const itemNamesInStorage = jsonItemNamesInStorage
@@ -9,6 +9,7 @@ class Items {
       : [];
     this.items = itemNamesInStorage.map((name) => new Item(name, this));
     this.itemContainer = $('#js-items');
+    this.renderItems();
   }
 
   renderItems() {
@@ -43,5 +44,3 @@ class Items {
     );
   }
 }
-
-export default new Items();
