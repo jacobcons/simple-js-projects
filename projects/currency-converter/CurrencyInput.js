@@ -1,6 +1,6 @@
 import { currencyTypes, exchangeRates } from './currency-data.js';
 
-export default class Currency {
+export default class CurrencyInput {
   constructor(amountInput, typeInput, initialType) {
     this.amountInput = amountInput;
     this.typeInput = typeInput;
