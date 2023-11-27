@@ -1,8 +1,8 @@
 import { $, $$ } from '../lib.js';
 import clothingData from './clothingData.js';
-import ClothingItem from './ClothingItem.js';
+import ClothingItemCard from './ClothingItemCard.js';
 
-export default class Clothing {
+export default class ClothingItemsGrid {
   constructor() {
     this.container = $('#js-clothing-container');
     this.renderedClothes = 0;
@@ -27,19 +27,15 @@ export default class Clothing {
       }),
     );
 
-    const clothingItemsToRender = clothingDataToRenderEssentialData.forEach(
+    const clothingItemCardsToRender = clothingDataToRenderEssentialData.forEach(
       ({ name, price, variations }) =>
-        new ClothingItem(name, price, variations),
+        this.appendClothingItemCard(
+          new ClothingItemCard(name, price, variations),
+        ),
     );
   }
 
-  renderClothingItem(clothingItem) {
-    const colors = clothingItem.variations.map((variation) =>
-      variation.colors.find((color) => color !== 'Colorful'),
-    );
-    generateClothingItemColoursTemplate(clothingItem);
-    const clothingItemColoursTemplate = ``;
-    const clothingItemTemplate = ``;
-    this.container.insertAdjacentHTML();
+  appendClothingItemCard(clothingItemCard) {
+    this.container.insertAdjacentHTML(clothingItemCard.element);
   }
 }
