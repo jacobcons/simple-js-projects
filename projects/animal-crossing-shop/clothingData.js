@@ -8,6 +8,8 @@ const clothingResponse = await fetch(baseUrl, {
     'X-API-VERSION': apiVersion,
   },
 });
-const clothingData = await clothingResponse.json();
+const clothingData = (await clothingResponse.json()).filter(
+  (clothingItem) => clothingItem.buy.length,
+);
 
 export default clothingData;

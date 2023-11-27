@@ -1,3 +1,4 @@
 import { $, $$ } from '../lib.js';
+import ClothingItemsGrid from './ClothingItemsGrid.js';
 
-const clothing = new Clothing($('.js-clothing-container'));
+const clothingItemsGrid = new ClothingItemsGrid();
