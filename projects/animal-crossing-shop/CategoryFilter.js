@@ -1,24 +1,16 @@
 import { $, $$ } from '../lib.js';
-import clothingData from './clothingData.js';
+import { categories } from './clothing-data.js';
 
 export default class CategoryFilter {
   constructor(clothingItemsGrid) {
     this.element = $('#js-categories');
-    this.fillCategories(CategoryFilter.getCategories());
+    this.addCategoryOptions();
     this.element.addEventListener('change', () => {
       clothingItemsGrid.filter();
     });
   }
 
-  static getCategories() {
-    const categories = clothingData.map(
-      (clothingItem) => clothingItem.category,
-    );
-    const uniqueCategories = [...new Set(categories)];
-    return uniqueCategories;
-  }
-
-  fillCategories(categories) {
+  addCategoryOptions() {
     categories.forEach((category) => {
       this.element.insertAdjacentHTML(
         'beforeend',

@@ -41,6 +41,10 @@ function getRandomIntInRange(min, max) {
   return randomIntSameRangeFromZero + min;
 }
 
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}
+
 export {
   $,
   $$,
@@ -49,4 +53,5 @@ export {
   getRandomArrayElement,
   range,
   getRandomIntInRange,
+  removeDuplicates,
 };
